@@ -1,4 +1,4 @@
-# ts-test2
+# uniapp-ts-template
 
 ## Project setup
 ```

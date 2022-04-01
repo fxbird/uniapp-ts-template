@@ -1,50 +1,22 @@
-<template>
-	<view class="content">
-        <image class="logo" src="../../static/logo.png"></image>
-		<view>
-            <text class="title">{{title}}</text>
-        </view>
-	</view>
-</template>
+<template src="./index.html" lang="html"></template>
 
 <script lang="ts">
-    import Vue from 'vue';
-	export default Vue.extend({
-		data() {
-			return {
-				title: 'Hello'
-			}
-		},
-		onLoad() {
+import {Component, Vue, Watch} from "vue-property-decorator";
+import moment from "moment";
 
-		},
-		methods: {
+@Component
+export default class Index extends Vue {
+  title: string = "Hello fxbird"
 
-		}
-	});
+  onLoad() {
+    console.log(moment(new Date()).format("yyyy-MM-DD HH:mm:ss"))
+    uni.showLoading({
+      title: "加载中...."
+    })
+
+    setTimeout(()=>{uni.hideLoading()}, 2000)
+  }
+}
 </script>
 
-<style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin: 200rpx auto 50rpx auto;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
-</style>
+<style src="./index.scss" lang="scss"></style>
